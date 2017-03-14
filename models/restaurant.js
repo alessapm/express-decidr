@@ -2,19 +2,21 @@ const db = require('../config/database.js');
 
 let Restaurant = {};
 
-Restaurant.findAllById = (id) => {
-  return db.manyOrNone(`SELECT * FROM restaurants where user_id = $1`, [id])
+Restaurant.findAllById = (user_id) => {
+  return db.manyOrNone(`SELECT * FROM favorites where user_id = $1`, [user_id])
 }
 
 
-Restaurant.create = (restaurant, id) => {
-  //something like,
-  //INSERT INTO restaurants (user_id, name, location, rating, etc)
+Restaurant.create = (restaurant, user_id) => {
+  //something like, return db.none
+  //INSERT INTO favorites (user_id, name, location, rating, etc)
   //VALUES ($1, $2, $3, $4),
   //[id, restaurant.name, restaurant.location, restaurant.rating]
 
 }
 
-Restaurant.destroy = (restaurant_id) => {};
+Restaurant.destroy = (restaurant_id) => {
+  return db.none(`DELETE FROM favorites where id = $1`, [restaurant_id])
+};
 
 module.exports = Restaurant;
