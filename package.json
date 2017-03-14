@@ -1,0 +1,30 @@
+{
+  "name": "express-decidr",
+  "version": "1.0.0",
+  "description": "express app for decidr food-decision app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alessapm/express-decidr.git"
+  },
+  "author": "Alessa Messineo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alessapm/express-decidr/issues"
+  },
+  "homepage": "https://github.com/alessapm/express-decidr#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "method-override": "^2.3.7",
+    "pg-promise": "^5.6.4"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "supertest": "^3.0.0"
+  }
+}
