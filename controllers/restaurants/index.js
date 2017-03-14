@@ -5,6 +5,9 @@ const controller = require('./controller');
 
 router.get('/:user_id', controller.show);
 router.post('/:user_id', controller.create);
-router.delete('/:user_id/:restaurant_id')
+
+router.put('/:user_id/:restaurant_id', controller.update);
+router.delete('/:user_id/:restaurant_id', controller.destroy);
+
 
 module.exports = router;

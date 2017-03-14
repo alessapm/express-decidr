@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 
 const bodyParser = require('body-parser');
+const bcrypt = require('bcrypt');
 const methodOverride = require('method-override');
 
 app.use(bodyParser.urlencoded({extended: true}));
