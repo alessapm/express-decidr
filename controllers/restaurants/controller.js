@@ -15,20 +15,20 @@ controller.index = (req, res) => {
 //controller.show will give us all the favorites
 //of a certain user
 controller.show = (req, res) => {
-  // Restaurant.findAllById(req.params.id) //will request
-  // //to a route with the user id as :id
-  // .then()
-  // .catch((err) => console.log(err))
+  Restaurant.findAllById(req.params.id) //will request
+  //to a route with the user id as :user_id
+  .then()
+  .catch((err) => console.log(err))
 
 }
 
 //controller.create will add to the favorites
 //of a certain user
 controller.create = (req, res) => {
-  // Restaurant.create(req.body.restaurant, req.params.id)
-  // //assuming we receive an object with {restaurant: {restaurant details}}
-  // .then()
-  // .catch((err) => console.log(err))
+  Restaurant.create(req.body.restaurant, req.params.id)
+  //assuming we receive an object with {restaurant: {restaurant details}}
+  .then()
+  .catch((err) => console.log(err))
 
 }
 
