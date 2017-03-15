@@ -31,6 +31,7 @@ it("POST /resturants/:user_id should return 201 and return nothing", (done) => {
   .send({
     restaurant: {
       user_id: 1,
+      restaurant_id: 1,
       name: "Chez Pantalons Fancies",
       html_attributions: "<a href=\"https://maps.google.com/maps/contrib/115395854612694541189/photos\">Hasina Bender</a>",
       price_level: 5,
