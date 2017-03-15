@@ -8,10 +8,10 @@ Restaurant.findAllById = (user_id) => {
 
 
 Restaurant.create = (restaurant, user_id) => {
-  something like, return db.none
-  INSERT INTO favorites (user_id, name, location, rating, etc)
-  VALUES ($1, $2, $3, $4),
-  [id, restaurant.name, restaurant.location, restaurant.rating]
+  // something like, return db.none
+  // INSERT INTO favorites (user_id, name, location, rating, etc)
+  // VALUES ($1, $2, $3, $4),
+  // [id, restaurant.name, restaurant.location, restaurant.rating]
 
 }
 
