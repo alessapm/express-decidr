@@ -17,12 +17,11 @@ app.set('views', './views');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-
 app.use(methodOverride('_method'));
 
 app.use(require('./resources.js'));
 
-app.listen(process.env.PORT || 8000);
+app.listen(process.env.PORT || 8000, () => console.log('Server is listening'));
 
 //need exports for testing
 module.exports = app;
