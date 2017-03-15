@@ -7,8 +7,11 @@ const controller = {};
 controller.index = (req, res) => {
   // console.log('req.params.zip: ', req.params.zip)
   GooglePlaces.search(req.params.zip)
-  .then(r => r.json())
-  .then(data => console.log(data.results))
+  .then(r => r.json()
+  .then((data) => {
+    console.log(data.results);
+    res.send(data.results);
+  }))
   .catch(err => console.log(err));
 };
 
@@ -17,8 +20,8 @@ controller.index = (req, res) => {
 controller.show = (req, res) => {
   Restaurant.findAllById(req.params.id) //will request
   //to a route with the user id as :user_id
-  .then()
-  .catch((err) => console.log(err))
+  // .then()
+  // .catch((err) => console.log(err))
 
 }
 
