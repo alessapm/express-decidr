@@ -20,7 +20,7 @@ it("GET /restaurants/:user_id should return 200 and be an Array", (done) => {
   .get("/restaurants/1")
   .end((err, results) => {
     expect(results.statusCode).to.equal(200);
-    // expect(results.body).to.be.an.instanceOf(Array);
+    expect(results.body).to.be.an.instanceOf(Array);
     done();
   });
 });
@@ -79,6 +79,41 @@ it("DELETE /restaurants/:user_id/:restaurant_id should return a 200 status code"
 
 }) //closes restaurants
 
+describe('Users', () => {
 
+  it("POST to /users should return a 201 and return nothing", (done) => {
+    request(app)
+    .post("/users")
+    .send({
+      user: {
+        first_name: "Lex",
+        last_name: "Spoon",
+        email: "Spoonsie@aol.com",
+        password: "password"
+      }
+    })
+    .end((err, results) => {
+      expect(results.statusCode).to.equal(201);
+      done();
+    });
+  });
+
+  it("POST /users/login should return 201 status code and return nothing", (done) => {
+    request(app)
+    .post("/users/login")
+    .send({
+      user: {
+        email: "alessa@email.com",
+        password: "password"
+      }
+    })
+    .end((err, results) => {
+      expect(results.statusCode).to.equal(201);
+      done();
+    });
+  });
+
+
+}) // closes describe users
 
 
