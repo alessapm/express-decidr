@@ -9,7 +9,7 @@ controller.index = (req, res) => {
   GooglePlaces.search(req.params.zip, req.params.category)
   .then(r => r.json()
   .then((data) => {
-    console.log(data.results);
+    // console.log(data.results);
     res.send(data.results);
   }))
   .catch(err => console.log(err));
@@ -18,9 +18,10 @@ controller.index = (req, res) => {
 //controller.show will give us all the favorites
 //of a certain user
 controller.show = (req, res) => {
-  Restaurant.findAllById(req.params.id) //will request
-  //to a route with the user id as :user_id
-  .then()
+  Restaurant.findAllById(req.params.id)
+  .then((data) => {
+    res.send(data);
+  })
   .catch((err) => console.log(err))
 
 }
@@ -30,21 +31,29 @@ controller.show = (req, res) => {
 controller.create = (req, res) => {
   Restaurant.create(req.body.restaurant, req.params.user_id)
   //assuming we receive an object with {restaurant: {restaurant details}}
-  .then((data) => console.log('controller.create is working'))
+  .then((data) => {
+    console.log('controller.create is working');
+    res.sendStatus(201);
+  })
   .catch((err) => console.log(err))
 
 }
 
 controller.update = (req, res) => {
   Restaurant.update(req.body.restaurant, req.params.user_id, req.params.restaurant_id)
-  .then((data) => console.log('controller.update is working'))
+  .then((data) => {
+    console.log('controller.update is working')
+    res.sendStatus(200);
+  })
   .catch((err) => console.log(err))
 }
 
 //controller.destroy deletes a favorite from a user
 controller.destroy = (req, res) => {
   Restaurant.destroy(req.params.restaurant_id)
-  .then()
+  .then(() => {
+    res.sendStatus(200);
+  })
   .catch((err) => console.log(err))
 }
 
