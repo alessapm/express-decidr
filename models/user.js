@@ -5,7 +5,7 @@ const User = {};
 
 User.create = (user) => {
   //create variable for encrypted password:
-  // const password = bcrypt.hashSync(user.password, 10);
+  const password = bcrypt.hashSync(user.password, 10);
 
   return db.none(`INSERT INTO users
     (first_name, last_name, email, password)
