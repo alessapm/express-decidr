@@ -1,5 +1,6 @@
 const request = require('supertest');
 const expect = require('chai').expect;
+const Model = require('../models/user.js')
 
 const app = require('../index.js');
 
@@ -81,6 +82,20 @@ it("DELETE /restaurants/:user_id/:restaurant_id should return a 200 status code"
 
 describe('Users', () => {
 
+  let user;
+  before((done) => {
+   Model.create({
+      first_name: "Bob",
+      last_name: "Jones",
+      email: "jones@gmail.com",
+      password: "password"
+    })
+   .then((user_record) => {
+    user = user_record;
+    done();
+   });
+  });
+
   it("POST to /users should return a 201 and return nothing", (done) => {
     request(app)
     .post("/users")
@@ -103,7 +118,7 @@ describe('Users', () => {
     .post("/users/login")
     .send({
       user: {
-        email: "alessa@email.com",
+        email: "jones@gmail.com",
         password: "password"
       }
     })
