@@ -18,6 +18,7 @@ controller.create = (req, res) => {
 
 //this will verify if someone has the right email and password:
 controller.login = (req, res) =>  {
+  console.log('***', req.body.user.email)
   User.findByEmail(req.body.user.email)
   .then((user) => {
     // res.sendStatus(201);
@@ -32,8 +33,11 @@ controller.login = (req, res) =>  {
         // ex:
         const token = jwt.sign({email: user.email}, myToken, { expiresIn: "7d"});
         // console.log('token: ', token);
+        console.log('token is: ', token)
+         res
+         // .sendStatus(201)
+         .json({token: token})
 
-         res.json({token: token});
 
       } else {
 
