@@ -6,7 +6,7 @@ const controller = {};
 
 controller.index = (req, res) => {
   // console.log('req.params.zip: ', req.params.zip)
-  GooglePlaces.search(req.params.zip)
+  GooglePlaces.search(req.params.zip, req.params.category)
   .then(r => r.json()
   .then((data) => {
     console.log(data.results);
