@@ -31,8 +31,7 @@ CREATE TABLE IF NOT EXISTS favorites
   html_attributions VARCHAR(255),
   price_level VARCHAR(255) NOT NULL,
   formatted_address VARCHAR(255) NOT NULL,
-  review_count INTEGER(255) NOT NULL,
-  rating INTEGER(255) NOT NULL,
+  rating DECIMAL NOT NULL,
   comment TEXT
 );
 
