@@ -1,5 +1,6 @@
 const request = require('supertest');
 const expect = require('chai').expect;
+const Model = require('../models/user.js')
 
 const app = require('../index.js');
 
@@ -79,6 +80,55 @@ it("DELETE /restaurants/:user_id/:restaurant_id should return a 200 status code"
 
 }) //closes restaurants
 
+describe('Users', () => {
 
+  let user;
+  before((done) => {
+   Model.create({
+      first_name: "Bob",
+      last_name: "Jones",
+      email: "jones@gmail.com",
+      password: "password"
+    })
+   .then((user_record) => {
+    user = user_record;
+    done();
+   });
+  });
+
+  it("POST to /users should return a 201 and return nothing", (done) => {
+    request(app)
+    .post("/users")
+    .send({
+      user: {
+        first_name: "Lex",
+        last_name: "Spoon",
+        email: "Spoonsie@aol.com",
+        password: "password"
+      }
+    })
+    .end((err, results) => {
+      expect(results.statusCode).to.equal(201);
+      done();
+    });
+  });
+
+  it("POST /users/login should return 201 status code and return nothing", (done) => {
+    request(app)
+    .post("/users/login")
+    .send({
+      user: {
+        email: "jones@gmail.com",
+        password: "password"
+      }
+    })
+    .end((err, results) => {
+      expect(results.statusCode).to.equal(201);
+      done();
+    });
+  });
+
+
+}) // closes describe users
 
 
