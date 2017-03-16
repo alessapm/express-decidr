@@ -20,7 +20,7 @@ it("GET /restaurants/:user_id should return 200 and be an Array", (done) => {
   .get("/restaurants/1")
   .end((err, results) => {
     expect(results.statusCode).to.equal(200);
-    // expect(results.body).to.be.an.instanceOf(Array);
+    expect(results.body).to.be.an.instanceOf(Array);
     done();
   });
 });
