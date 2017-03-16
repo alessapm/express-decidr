@@ -26,21 +26,16 @@ controller.login = (req, res) =>  {
     if (user) {
       const isAuthed = bcrypt.compareSync(req.body.user.password, user.password);
       if (isAuthed) {
-
         console.log('isAuthed is true');
-        //generate the token here,
-        //(add it to the end of a url route and then) send it to the front end.
-        // ex:
+        // set up JWT token. Sending email as the payload
+        //myToken as the secret (stored in .env)
         const token = jwt.sign({email: user.email}, myToken, { expiresIn: "7d"});
-        // console.log('token: ', token);
-        console.log('token is: ', token)
+
          res
          // .sendStatus(201)
          .json({token: token})
 
-
       } else {
-
         console.log('isAuthed is false');
         res.status(401)
       }
@@ -53,7 +48,18 @@ controller.login = (req, res) =>  {
   })
 };
 
-
+//use jwt.verify to compare the secret in the Token to the one in .env
+controller.restricted = (req, res) => {
+  jwt.verify(req.headers.authorization, myToken, (err, decoded) => {
+    if (err) {
+      res.
+      status(401)
+      .json({error: err.message});
+    } else {
+      res.json({message: 'this is content coming from Node.'});
+    }
+  })
+}
 
 
 
