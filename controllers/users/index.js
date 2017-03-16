@@ -7,4 +7,5 @@ router.post('/', controller.create);
 router.post('/login', controller.login);
 router.get('/restrict', controller.restricted);
 
+
 module.exports = router;
