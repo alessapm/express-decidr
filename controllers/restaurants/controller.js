@@ -6,10 +6,11 @@ const controller = {};
 
 controller.index = (req, res) => {
   // console.log('req.params.zip: ', req.params.zip)
+  console.log('req.params ', req.params)
   GooglePlaces.search(req.params.zip, req.params.category)
   .then(r => r.json()
   .then((data) => {
-    // console.log(data.results);
+    console.log('******data.: ', data);
     res.send(data.results);
   }))
   .catch(err => console.log(err));
