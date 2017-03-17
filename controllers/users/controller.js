@@ -33,7 +33,11 @@ controller.login = (req, res) =>  {
 
          res
          // .sendStatus(201)
-         .json({token: token})
+         .json({
+            token: token,
+            firstname: user.first_name,
+            lastname: user.last_name
+          })
 
       } else {
         console.log('isAuthed is false');
