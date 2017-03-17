@@ -33,7 +33,7 @@ controller.create = (req, res) => {
   Restaurant.create(req.body.restaurant, req.params.user_id)
   //assuming we receive an object with {restaurant: {restaurant details}}
   .then((data) => {
-    console.log('controller.create is working');
+    console.log('controller.create is working', req.body.restaurant);
     res.sendStatus(201);
   })
   .catch((err) => console.log(err))
