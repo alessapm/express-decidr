@@ -36,7 +36,8 @@ controller.login = (req, res) =>  {
          .json({
             token: token,
             firstname: user.first_name,
-            lastname: user.last_name
+            lastname: user.last_name,
+            id: user.id
           })
 
       } else {
