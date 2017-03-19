@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS favorites
   name VARCHAR(255) NOT NULL,
   lat VARCHAR(255) NOT NULL,
   lng VARCHAR(255) NOT NULL,
-  price_level VARCHAR(255) NOT NULL,
+  price_level VARCHAR(255),
   formatted_address VARCHAR(255) NOT NULL,
   rating DECIMAL NOT NULL,
   comment TEXT
