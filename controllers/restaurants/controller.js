@@ -19,7 +19,8 @@ controller.index = (req, res) => {
 //controller.show will give us all the favorites
 //of a certain user
 controller.show = (req, res) => {
-  Restaurant.findAllById(req.params.id)
+
+  Restaurant.findAllById(req.params.user_id)
   .then((data) => {
     res.send(data);
   })
