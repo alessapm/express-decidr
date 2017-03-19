@@ -42,7 +42,7 @@ controller.create = (req, res) => {
 }
 
 controller.update = (req, res) => {
-  Restaurant.update(req.body.restaurant, req.params.user_id, req.params.restaurant_id)
+  Restaurant.update(req.body.comment, req.params.user_id, req.params.restaurant_id)
   .then((data) => {
     console.log('controller.update is working')
     res.sendStatus(200);
