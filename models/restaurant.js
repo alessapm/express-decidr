@@ -3,7 +3,7 @@ const db = require('../config/database.js');
 let Restaurant = {};
 
 Restaurant.findAllById = (user_id) => {
-  return db.manyOrNone(`SELECT * FROM favorites where user_id = $1`, [user_id])
+  return db.manyOrNone(`SELECT * FROM favorites WHERE user_id = $1`, [user_id])
 }
 
 
