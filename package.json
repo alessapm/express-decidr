@@ -4,7 +4,7 @@
   "description": "express app for decidr food-decision app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/mocha/bin/mocha"
   },
   "repository": {
     "type": "git",
@@ -17,9 +17,15 @@
   },
   "homepage": "https://github.com/alessapm/express-decidr#readme",
   "dependencies": {
+    "bcrypt": "^1.0.2",
     "body-parser": "^1.17.1",
+    "cors": "^2.8.1",
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.6",
     "express": "^4.15.2",
+    "jsonwebtoken": "^7.3.0",
     "method-override": "^2.3.7",
+    "node-fetch": "^1.6.3",
     "pg-promise": "^5.6.4"
   },
   "devDependencies": {
